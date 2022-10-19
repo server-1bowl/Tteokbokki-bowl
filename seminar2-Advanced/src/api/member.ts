@@ -22,7 +22,7 @@ const members : soptInfo[] = [
   }
 ]
 
-const getMember = (req: Request, res: Response) => {
+export const getMember = (req: Request, res: Response) => {
     return res.status(200).json({ //Status Code: 200은 성공을 의미..
         status: 200,
         message: "멤버 조회 성공",
@@ -30,9 +30,9 @@ const getMember = (req: Request, res: Response) => {
     });
 };
 
-const postMember = (req: Request, res: Response) => {
-  const body = req.body;
-  members.push(body);
+export const postMember = (req: Request, res: Response) => {
+  const body = req.body; //req 객체로 넘어오는 json body 받기
+  members.push(body); // members 배열에 추가하기.
 
   return res.status(200).json({ //Status Code: 200은 성공을 의미..
         status: 200,
@@ -42,6 +42,6 @@ const postMember = (req: Request, res: Response) => {
 };
 
 // 아래와 같은 방법도 있음 !
-module.exports.getMember = getMember; 
-module.exports.postMember =  postMember;
+// module.exports.getMember = getMember; 
+// module.exports.postMember =  postMember;
 
